@@ -12,7 +12,7 @@ class DbHelper {
   }
   Future<Database> initDatabase() async {
     final path = join(await getDatabasesPath(), 'expense.db');
-    return openDatabase(path, version: 1, onCreate: _createTable);
+    return openDatabase(path, version: 2, onCreate: _createTable);
   }
 
   Future<void> _createTable(Database db, int version) async {
@@ -22,8 +22,10 @@ class DbHelper {
       title TEXT NOT NULL,
       ammount REAL NOT NULL,
       type TEXT NOT NULL,
-      date TEXT NOT NULL,
-      ''');
+      date TEXT NOT NULL
+      )
+      '''
+    );
   }
   Future<void> insertTransaction(TransactionModel transaction) async {
     final db = await database;
