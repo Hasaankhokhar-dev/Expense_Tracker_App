@@ -19,7 +19,7 @@ class DbHelper {
     await db.execute('''
     CREATE TABLE transactions (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
-      title TEXT NOT NULL,,
+      title TEXT NOT NULL,
       ammount REAL NOT NULL,
       type TEXT NOT NULL,
       date TEXT NOT NULL,

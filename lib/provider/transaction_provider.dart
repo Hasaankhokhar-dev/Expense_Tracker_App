@@ -17,10 +17,20 @@ class TransactionProvider extends ChangeNotifier {
     return _transactions
         .where((t) => t.type == "expense")
         .fold(0.0, (sum, t) => sum + t.ammount);
+
+    // double total = 0.0;
+    //
+    // for(var t in _transactions){
+    //   if(t.type == 'expense'){
+    //     total = total + t.amount;
+    //   }
+    // }
+    //
+    // return total;
   }
 
   double get balance {
-    return totalIncome - totalExpence;
+    return  totalIncome - totalExpence;
   }
 
   Future<void> loadTransactions() async {
